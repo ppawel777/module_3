@@ -1,34 +1,12 @@
-import React from 'react'
-import useFetch from './hooks/useFetch'
+import React from 'react';
+// import DemoFetch from './components/demo/DemoFetch';
+import DemoLocalStorage from './components/demo/DemoLocalStorage';
 
-const Demo: React.FC = () => {
-  const { 
-    data, 
-    isLoading, 
-    error, 
-    refetch,
-  } = useFetch('https://jsonplaceholder.typicode.com/posts')
-
+const App: React.FC = () => {
   return (
-    <div>
-      <div>
-        <button onClick={() => refetch({
-          params: {
-            _limit: 3,
-            // _offset: 10
-          }
-        })}>
-          Перезапросить
-        </button>
-      </div>
-
-      {isLoading && 'Загрузка...'}
-
-      {error && 'Произошла ошибка'}
-
-      {data && !isLoading && data.map((item: any) => <div key={item.id}>{item.title}</div>) }
-    </div>
-  )
+    // <DemoFetch />
+    <DemoLocalStorage />
+  );
 }
 
-export default Demo;
+export default App;
