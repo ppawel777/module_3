@@ -9,7 +9,10 @@ type IResponse = [
 ];
 
 const useLocalStorage = (initToken: string): IResponse => {
-  const [token, setToken] = useState(initToken);
+  const [token, setToken] = useState(() => {
+    const item = localStorage.getItem("token");
+    return item ? JSON.parse(item) : initToken;
+  });
 
   useEffect(() => {
     localStorage.setItem('token', JSON.stringify(token))
