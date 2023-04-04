@@ -1,9 +1,10 @@
 import React from 'react';
-// import DemoFetch from './components/demo/DemoFetch';
-// import DemoLocalStorage from './components/demo/DemoLocalStorage';
-// import DemoHover from './components/demo/DemoHover';
-// import DemoViewport from './components/demo/DemoViewport';
-import DemoWindowScroll from './components/demo/DemoWindowScroll';
+// import DemoFetch from './components/Demo/DemoFetch';
+// import DemoLocalStorage from './components/Demo/DemoLocalStorage';
+// import DemoHover from './components/Demo/DemoHover';
+// import DemoViewport from './components/Demo/DemoViewport';
+import DemoWindowScroll from './components/Demo/DemoWindowScroll';
+
 
 const App: React.FC = () => {
   return (
