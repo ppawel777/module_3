@@ -1,32 +1,44 @@
 import React from 'react'
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react'
-import { TextInput, Flex, Button } from '@mantine/core';
+import { Flex, Button } from '@mantine/core';
+import InputComponent from './components/Input';
+import useFormState from '../../hooks/useFormState';
 
+const Signin = ({ handleOnSubmitIn }) => {
+  const { inputs, setValues } = useFormState(null);
 
-const Signin = () => {
-  const [inputValues, setInputValues] = useState()
+  const handleOnChange = event => setValues(event)
 
   return (
-    <form
+    <form 
+      onSubmit={ e => handleOnSubmitIn(e, inputs) }
+      onChange={ handleOnChange }
     > 
       <Flex
-      mih={50}
-      gap="md"
-      justify="flex-start"
-      align="flex-start"
-      direction="column"
-      wrap="wrap"
-    >
-      <input 
-        type="email"
-        name="email"
-      />
-      <input
-        type="password" 
-        name="password"
-      />
-      <Button type="submit">Войти</Button>
-    </Flex>
+        mih={50}
+        gap="xl"
+        justify="flex-start"
+        align="flex-start"
+        direction="column"
+        wrap="wrap"
+      >
+        <InputComponent
+          type="email"
+          name="email"
+          placeholder='Email'
+          label='Email'
+          required
+          icon="@"
+        />
+        <InputComponent
+          type="password"
+          name="password"
+          placeholder='Password'
+          label='Password'
+          required
+          description="Пароль должен содержать не менее 5 символов"
+        />
+        <Button type="submit" mt={40}>Войти</Button>
+      </Flex>
     </form>
   )
 }
