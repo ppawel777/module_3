@@ -1,4 +1,9 @@
 .rm-heroes {
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &_nav {
     margin-top: 10px;
     padding: 10px;

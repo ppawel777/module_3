@@ -9,19 +9,23 @@ import LocationList from '../pages/LocationList'
 import Location from '../pages/Location'
 import EpisodeList from '../pages/EpisodeList'
 import Episode from '../pages/Episode'
+import Login from '../pages/Login'
+import { PrivateRoute } from "./PrivateRoute";
 
 const RoutesComponent = () => {
+
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="heroes" element={<HeroesList />} />
-        <Route path="heroes/:id" element={<Heroes />} />
-        <Route path="locations" element={<LocationList />} />
-        <Route path="locations/:id" element={<Location />} />
-        <Route path="episodes" element={<EpisodeList />} />
-        <Route path="episodes/:id" element={<Episode />} />
+        <Route path="heroes" element={<PrivateRoute><HeroesList /></PrivateRoute>} />
+        <Route path="heroes/:id" element={<PrivateRoute><Heroes /></PrivateRoute>} />
+        <Route path="locations" element={<PrivateRoute><LocationList /></PrivateRoute>} />
+        <Route path="locations/:id" element={<PrivateRoute><Location /></PrivateRoute>} />
+        <Route path="episodes" element={<PrivateRoute><EpisodeList /></PrivateRoute>} />
+        <Route path="episodes/:id" element={<PrivateRoute><Episode /></PrivateRoute>} />
       </Route>
+      <Route path="login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
